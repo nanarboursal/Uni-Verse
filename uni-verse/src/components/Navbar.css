@@ -5,7 +5,7 @@
   width: 100%;
   z-index: 4;
   position: fixed;
-  height: 60px;
+  height: auto;
 }
 
 .navbar-brand {
@@ -33,12 +33,20 @@
 #nav-itemz {
   color: white;
   font-family: "Montserrat", sans-serif;
-}
-
-.item-nav {
   margin-right: 12px;
   text-align: center;
   font-size: 1.4rem;
   font-weight: bold;
+}
+
+.item-nav {
   font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.item-nav:hover {
+  background-color: #d3d3d3 !important;
+}
+
+.item-nav:active {
+  background-color: grey !important;
 }

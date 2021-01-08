@@ -27,23 +27,23 @@ const NavBar = props => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto the-nav" navbar>
-            <UncontrolledDropdown className="item-nav" nav inNavbar>
+            <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret id="nav-itemz">
                 Profile
               </DropdownToggle>
               <DropdownMenu right>
                 {/* <DropdownItem href="/">View Profile</DropdownItem> */}
-                <DropdownItem href="/">Your Matches</DropdownItem>
-                <DropdownItem href="/">Log Out</DropdownItem>
+                <DropdownItem className="item-nav" href="/">Your Matches</DropdownItem>
+                <DropdownItem className="item-nav" href="/">Log Out</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
-            <UncontrolledDropdown className="item-nav" nav inNavbar>
+            <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret id="nav-itemz">
                 Sign In
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem href="/signUp">Sign Up</DropdownItem>
-                <DropdownItem href="/logIn">Log In</DropdownItem>
+                <DropdownItem className="item-nav" href="/signUp">Sign Up</DropdownItem>
+                <DropdownItem className="item-nav" href="/logIn">Log In</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
