@@ -28,17 +28,17 @@ const NavBar = props => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto the-nav" navbar>
             <UncontrolledDropdown className="item-nav" nav inNavbar>
-              <DropdownToggle nav caret>
+              <DropdownToggle nav caret id="nav-itemz">
                 Profile
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem href="/">View Profile</DropdownItem>
+                {/* <DropdownItem href="/">View Profile</DropdownItem> */}
                 <DropdownItem href="/">Your Matches</DropdownItem>
                 <DropdownItem href="/">Log Out</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
             <UncontrolledDropdown className="item-nav" nav inNavbar>
-              <DropdownToggle nav caret>
+              <DropdownToggle nav caret id="nav-itemz">
                 Sign In
               </DropdownToggle>
               <DropdownMenu right>
