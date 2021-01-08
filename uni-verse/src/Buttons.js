@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
+import { Container, Row, Col, Form, FormGroup } from 'reactstrap';
+import './Buttons.css';
 // Watch the Button tutorial
 // http://react.school/ui/button
 
@@ -11,14 +12,14 @@ import styled from "styled-components";
 // http://react.school/material-ui/templates
 
 const theme = {
-  blue: {
-    default: "#3f51b5",
-    hover: "#283593"
-  },
-  pink: {
-    default: "#e91e63",
-    hover: "#ad1457"
-  }
+    blue: {
+        default: "#3f51b5",
+        hover: "#283593"
+    },
+    pink: {
+        default: "#e91e63",
+        hover: "#ad1457"
+    }
 };
 
 const Button = styled.button`
@@ -42,18 +43,18 @@ const Button = styled.button`
 `;
 
 Button.defaultProps = {
-  theme: "blue"
+    theme: "blue"
 };
 
 function clickMe() {
-  alert("You clicked me!");
+    alert("You clicked me!");
 }
 
 const ButtonToggle = styled(Button)`
   opacity: 0.7;
   ${({ active }) =>
-    active &&
-    `
+        active &&
+        `
     opacity: 1; 
   `}
 `;
@@ -68,70 +69,158 @@ const Tab = styled.button`
   border-bottom: 2px solid transparent;
   transition: ease border-bottom 250ms;
   ${({ active }) =>
-    active &&
-    `
+        active &&
+        `
     border-bottom: 2px solid black;
     opacity: 1;
   `}
 `;
 
-function TabGroup() {
-  const [active, setActive] = useState(types[0]);
-  return (
-    <>
-      <div>
-        {types.map((type) => (
-          <Tab
-            key={type}
-            active={active === type}
-            onClick={() => setActive(type)}
-          >
-            {type}
-          </Tab>
-        ))}
-      </div>
-      <p />
-      <p> Your payment selection: {active} </p>
-    </>
-  );
+class Buttons extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: '',
+            usermajor: '',
+            gender: '',
+            social: '',
+            major: '',
+            hobby: '',
+        };
+    }
+
+    mySubmitHandler = (event) => {
+        event.preventDefault();
+    }
+
+    myChangeHandler = (event) => {
+        this.setState({ [event.target.name]: event.target.value });
+        // if ([event.target.name] == "gender") {
+        //     if (event.target.value == "Male") {
+        //         this.setState({ gender: 0 })
+        //     }
+        //     if (event.target.value == "Female") {
+        //         this.setState({ gender: 1 })
+        //     }
+        // }
+    }
+
+    render() {
+        return (
+            <>
+
+                <div class="row">
+                    <div class="column">
+                        <div class="card">
+                            <div class="container">
+                                <p>WELCOME</p>
+                                <p>Please choose options below!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* <MajorGroup /> 
+            <LikesGroup />  */}
+
+
+
+                <div class="name-container">
+                    <div class="row">
+                        <form onSubmit={this.mySubmitHandler}>
+                            Enter your name {"  "}
+                            <input
+                                type="text"
+                                name="username"
+                                onChange={this.myChangeHandler}
+                            />  {"  "}
+                            <input
+                                type='submit'
+                            />
+                        </form>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <form onSubmit={this.mySubmitHandler}>
+                            Enter your major  {"  "}
+                            <input
+                                type="text"
+                                name="usermajor"
+                                onChange={this.myChangeHandler}
+                            />  {"  "}
+                            <input
+                                type='submit'
+                            />
+                        </form>
+                    </div>
+                    <br />
+                    <div>
+                        <Row>
+                            <form onSubmit={this.mySubmitHandler}>
+                                <Col>
+                                    Gender {"  "}
+                                </Col>
+                                <Col>
+                                    <button type="submit" name="gender" value="0" onClick={this.myChangeHandler}>Male</button>
+                                    {"  "}
+                                    <button type="submit" name="gender" value="1" onClick={this.myChangeHandler}>Female</button>
+                                </Col>
+                            </form>
+                        </Row>
+                    </div>
+                    <div className="block-space"></div>
+                    <div>
+                        <Row>
+                            <form onSubmit={this.mySubmitHandler}>
+                                Social Personality
+                                <Col>
+                                    <button type="submit" name="social" value="1" onClick={this.myChangeHandler}>Outgoing</button>
+                                    {"  "}
+                                    <button type="submit" name="social" value="2" onClick={this.myChangeHandler}>Homebody</button>
+                                </Col>
+                            </form>
+                        </Row>
+                    </div>
+                    <div className="block-space"></div>
+                    <div>
+                        <Row>
+                            <form onSubmit={this.mySubmitHandler}>
+                                Major
+                                <Col>
+                                    <button type="submit" name="major" value="1" onClick={this.myChangeHandler}>SE/CS/CE</button>
+                                    {"  "}
+                                    <button type="submit" name="major" value="2" onClick={this.myChangeHandler}>Nutrition</button>
+                                    {"  "}
+                                    <button type="submit" name="major" value="3" onClick={this.myChangeHandler}>Business</button>
+                                    {"  "}
+                                    <button type="submit" name="major" value="4" onClick={this.myChangeHandler}>Arts and Humanities</button>
+                                </Col>
+                            </form>
+                        </Row>
+                        <div className="block-space"></div>
+                        <div>
+                            <Row>
+                                <form onSubmit={this.mySubmitHandler}>
+                                    Hobbies
+                                <Col>
+                                        <button type="submit" name="hobby" value="1" onClick={this.myChangeHandler}>Arts | Painting</button>
+                                        {"  "}
+                                        <button type="submit" name="hobby" value="2" onClick={this.myChangeHandler}>Workout | Gym</button>
+                                        {"  "}
+                                        <button type="submit" name="hobby" value="3" onClick={this.myChangeHandler}>Hike | Trekking | Adventures</button>
+                                        {"  "}
+                                        <button type="submit" name="hobby" value="4" onClick={this.myChangeHandler}>Music | Singing </button>
+                                    </Col>
+                                </form>
+                            </Row>
+                            {console.log(this.state.major)}
+
+                        </div>
+                    </div>
+                </div>
+            </>
+        );
+    }
 }
 
-const types = ["Cash", "Credit Card", "Bitcoin"];
+export default Buttons;
 
-function ToggleGroup() {
-  const [active, setActive] = useState(types[0]);
-  return (
-    <div>
-      {types.map((type) => (
-        <ButtonToggle active={active === type} onClick={() => setActive(type)}>
-          {type}
-        </ButtonToggle>
-      ))}
-    </div>
-  );
-}
-
-export default function App() {
-  return (
-    <>
-      <div>
-        <Button onClick={clickMe}>Button</Button>
-      </div>
-      <div>
-        <Button theme="pink" onClick={clickMe}>
-          Pink theme
-        </Button>
-      </div>
-      <div>
-        <Button disabled onClick={clickMe}>
-          Disabled
-        </Button>
-      </div>
-      <a href="https://react.school" target="_blank">
-        <Button>Link</Button>
-      </a>
-      <ToggleGroup />
-      <TabGroup />
-    </>
-  );
-}
