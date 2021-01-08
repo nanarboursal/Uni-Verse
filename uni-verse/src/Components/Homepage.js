@@ -32,11 +32,7 @@ export default class Homepage extends Component {
             Make new friends in your university based on interests, majors, and similar classes. 
             Time to make your college experience memorable! 
           </p>
-          {/* <hr></hr>
-          <p className="enter-location">
-            Enter your location below and get a list of plants that will have a
-            high chance of survival.
-          </p> */}
+         
         </div>
       
       </>
