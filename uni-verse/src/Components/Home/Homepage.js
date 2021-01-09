@@ -37,6 +37,12 @@ export default class Homepage extends Component {
             similar classes. Time to make your college experience memorable!
           </p>
         </div>
+
+        <div className="sign-up-container">
+        <React.Fragment>
+        <Link className="sign-up" to="/questions">Sign Up</Link>          
+       </React.Fragment>
+        </div>
       </>
     );
   }

@@ -1,3 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Arima+Madurai:300');
+
+.welcome-container{
+    padding-top: 2%;
+    background-color: #5c689e;
+    text-align: center;
+    display: inline;
+    color: rgb(255, 255, 255);
+    font-family: Arima Madurai;
+    width: 100%;
+    align-items: center;
+}
+
+.background-container{
+    padding-left: 5%;
+    width: 100%;
+    text-align: center !important;
+    align-items: center;
+    justify-content: center;
+    background-color: #bac3e9;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.title-styles{
+    text-align: center;
+    display: block;
+}
+
+.subcontainer-styles{
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+}
+
 .column {
     float: left;
     width: 100%;
@@ -10,6 +47,37 @@
   }
 
   .block-space{
-      margin: 5%;
-  
+      margin: 2%;
+  }
+
+  button{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font: bold 20px;
+	text-decoration: none;
+	background: #ffffff;
+	color: #7784bc;
+	padding: 10px 16px 10px 16px;
+	border-radius: 10px; 	  
+	border: 2px solid #5c689e;
+  }
+
+  .submitInput{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font: bold 20px;
+	text-decoration: none;
+	background: #ffffff;
+	color: #7784bc;
+	padding: 10px 16px 10px 16px;
+	border-radius: 10px; 	  
+	border: 2px solid #5c689e;
+  }
+
+  button:hover, .submitInput:hover{
+	background: #7784bc;
+	color: #ffffff;
+	border: 2px solid #5c689e;
+  }
+
+  .boxInput{
+      border-radius: 5px;
   }

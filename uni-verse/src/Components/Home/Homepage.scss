@@ -191,7 +191,7 @@ h1 {
 }
 
 .banner-text {
-  color: #193a56;
+  color: #fdfdfd;
   font-size: 35px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 40px;
@@ -201,4 +201,29 @@ h1 {
   text-align: center;
   height: auto;
   margin: 2%;
+}
+
+.sign-up{
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font: bold 20px;
+	text-decoration: none;
+	background: #ffffff;
+	color: #7784bc;
+	padding: 10px 16px 10px 16px;
+	border-radius: 10px; 	  
+	border: 2px solid #5c689e;
+	al: center;
+}
+
+.sign-up:hover{
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font: bold 20px;
+	text-decoration: none;
+	background: #7784bc;
+	color: #ffffff;
+	border: 2px solid #5c689e;
+}
+
+.sign-up-container{
+	text-align: center;
 }
