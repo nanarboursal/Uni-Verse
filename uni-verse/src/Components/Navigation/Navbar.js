@@ -10,9 +10,9 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import * as ROUTES from "../../constants/routes";
+import * as ROUTES from '../../constants/routes';
 
 import "./Navbar.css";
 
@@ -36,12 +36,12 @@ const NavBar = props => {
               </DropdownToggle>
               <DropdownMenu right>
                 {/* <DropdownItem href="/">View Profile</DropdownItem> */}
-                <DropdownItem className="item-nav">
+                <DropdownItem className="item-nav" href="/">
                   <Link to={ROUTES.MATCHES}>Your Matches</Link>
                 </DropdownItem>
                 <DropdownItem className="item-nav" href="/">
-                  <Link to={ROUTES.HOMEPAGE}>Log Out</Link>
-                </DropdownItem>
+                <Link to={ROUTES.HOMEPAGE}>Log Out</Link>
+                  </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
             <UncontrolledDropdown nav inNavbar>
@@ -49,12 +49,8 @@ const NavBar = props => {
                 Sign In
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem className="item-nav">
-                  <Link to={ROUTES.SIGNUP}>Sign Up</Link>
-                </DropdownItem>
-                <DropdownItem className="item-nav">
-                  <Link to={ROUTES.SIGNIN}>Sign In</Link>
-                </DropdownItem>
+                <DropdownItem className="item-nav" href="/signUp">Sign Up</DropdownItem>
+                <DropdownItem className="item-nav" href="/logIn">Log In</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
