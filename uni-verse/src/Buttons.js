@@ -1,8 +1,6 @@
 import React from "react";
 import { Row, Col } from 'reactstrap';
 import './Buttons.css';
-import Navbar from './Components/Navigation/Navbar';
-import SignUp from './Components/Pages/SignUp';
 class Buttons extends React.Component {
     constructor(props) {
         super(props);

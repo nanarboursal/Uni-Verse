@@ -6,8 +6,7 @@ import SignUp from './Components/Pages/SignUp';
 
 import React from 'react';
 import * as ROUTES from './constants/routes';
-import {	
-    BrowserRouter as Router,	
+import {		
     Route,	
   } from 'react-router-dom';	
   
