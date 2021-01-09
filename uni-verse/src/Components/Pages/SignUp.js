@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { compose } from "recompose";
-
-import { withFirebase } from "../../Components/Firebase";
+import { writeUserInformation } from "../Firebase/firebase";
+import { withFirebase } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
 import NavBar from "../../Components/Navigation/Navbar";
-import signup from "./signuppic.jpg"
-import Questions from '../../Buttons';
+import signup from "./signuppic.jpg";
+import { Row, Col } from "reactstrap";
 import "./SignUp.css";
 
 const SignUpPage = () => (
@@ -15,37 +15,85 @@ const SignUpPage = () => (
   </div>
 );
 
-const INITIAL_STATE = {
-  email: "",
-  passwordOne: "",
-  passwordTwo: "",
-  error: null
-};
-
 class SignUpFormBase extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { ...INITIAL_STATE };
+    this.state = {
+      email: "",
+      passwordOne: "",
+      passwordTwo: "",
+      error: null,
+      username: "",
+      usermajor: "",
+      gender: "",
+      social: "",
+      major: "",
+      hobby: "",
+      bio: "",
+      smoke: "",
+      gamer: ""
+    };
   }
 
   onSubmit = event => {
-    const { email, passwordOne } = this.state;
+    event.preventDefault();
+    const {
+      email,
+      passwordOne,
+      username,
+      usermajor,
+      gender,
+      social,
+      major,
+      hobby,
+      bio,
+      smoke,
+      gamer
+    } = this.state;
+    let ref = "users/" + username;
+    let obj = {
+      email,
+      passwordOne,
+      usermajor,
+      gender,
+      social,
+      major,
+      hobby,
+      bio,
+      smoke,
+      gamer
+    };
+
+    writeUserInformation(ref, obj);
 
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
-        this.setState({ ...INITIAL_STATE });
-        this.props.history.push(ROUTES.HOMEPAGE);
+        this.setState({
+          email: "",
+          passwordOne: "",
+          passwordTwo: "",
+          error: null,
+          username: "",
+          usermajor: "",
+          gender: "",
+          social: "",
+          major: "",
+          hobby: "",
+          bio: "",
+          smoke: "",
+          gamer: ""
+        });
+        this.props.history.push(ROUTES.MATCHES);
       })
       .catch(error => {
         this.setState({ error });
       });
-
-    event.preventDefault();
   };
 
   onChange = event => {
+    event.preventDefault();
     this.setState({ [event.target.name]: event.target.value });
   };
 
@@ -56,7 +104,8 @@ class SignUpFormBase extends Component {
       passwordOne !== passwordTwo ||
       passwordOne === "" ||
       email === "" ||
-      username === "";
+      username === "" ||
+      passwordOne.length < 6;
 
     return (
       <div>
@@ -97,7 +146,200 @@ class SignUpFormBase extends Component {
             placeholder="Confirm Password"
             className="input-box"
           />
-        <Questions />
+          <div className="welcome-container">
+            <h2>
+              Tell us more about yourself to find some new friends from your
+              university!
+            </h2>
+          </div>
+
+          <div className="background-container">
+            <Row>
+              <Col>
+                <br />
+                <div>
+                  Your major {"  "}
+                  <input
+                    type="text"
+                    name="usermajor"
+                    onChange={this.onChange}
+                    className="boxInput"
+                  />{" "}
+                  {"  "}
+                </div>
+                <br />
+                <div>
+                  More about yourself {"  "}
+                  <input
+                    type="text"
+                    name="bio"
+                    onChange={this.onChange}
+                    className="boxInput"
+                  />{" "}
+                  {"  "}
+                </div>
+                <br />
+                <Col>
+                  <div>
+                    <Col className="title-styles">Your Gender {"  "}</Col>
+                    <Col>
+                      <button
+                        type="submit"
+                        name="gender"
+                        value="male"
+                        onClick={this.onChange}
+                      >
+                        Male
+                      </button>
+                      {"  "}
+                      <button
+                        type="submit"
+                        name="gender"
+                        value="female"
+                        onClick={this.onChange}
+                      >
+                        Female
+                      </button>
+                    </Col>
+                  </div>
+                </Col>
+                <div className="block-space"></div>
+                <div className="subcontainer-styles">
+                  Social Personality
+                  <Col>
+                    <button
+                      type="submit"
+                      name="social"
+                      value="outgoing"
+                      onClick={this.onChange}
+                    >
+                      Outgoing
+                    </button>
+                    {"  "}
+                    <button
+                      type="submit"
+                      name="social"
+                      value="homebody"
+                      onClick={this.onChange}
+                    >
+                      Homebody
+                    </button>
+                  </Col>
+                </div>
+                <div className="block-space"></div>
+                <div className="subcontainer-styles">
+                  Social smoker and/or drinker?
+                  <Col>
+                    <button
+                      type="submit"
+                      name="smoke"
+                      value="yes smoker/drinker"
+                      onClick={this.onChange}
+                    >
+                      Yeaa!
+                    </button>
+                    {"  "}
+                    <button
+                      type="submit"
+                      name="smoke"
+                      value="no smoker/drinker"
+                      onClick={this.onChange}
+                    >
+                      Nope!
+                    </button>
+                  </Col>
+                </div>
+                <div className="block-space"></div>
+                <div className="subcontainer-styles">
+                  Match your major?
+                  <Col>
+                    <button
+                      type="submit"
+                      name="major"
+                      value="yes major"
+                      onClick={this.onChange}
+                    >
+                      Yes
+                    </button>
+                    {"  "}
+                    <button
+                      type="submit"
+                      name="major"
+                      value="no major"
+                      onClick={this.onChange}
+                    >
+                      No
+                    </button>
+                  </Col>
+                </div>
+                <div className="block-space"></div>
+                <div className="subcontainer-styles">
+                  Hobbies
+                  <Col>
+                    <button
+                      type="submit"
+                      name="hobby"
+                      value="arts"
+                      onClick={this.onChange}
+                    >
+                      Arts
+                    </button>
+                    {"  "}
+                    <button
+                      type="submit"
+                      name="hobby"
+                      value="workout"
+                      onClick={this.onChange}
+                    >
+                      Workout
+                    </button>
+                    {"  "}
+                    <button
+                      type="submit"
+                      name="hobby"
+                      value="outdoor adventures"
+                      onClick={this.onChange}
+                    >
+                      Outdoor Adventures
+                    </button>
+                    {"  "}
+                    <button
+                      type="submit"
+                      name="hobby"
+                      value="music"
+                      onClick={this.onChange}
+                    >
+                      Music
+                    </button>
+                  </Col>
+                </div>
+                <div className="block-space"></div>
+                <div className="subcontainer-styles">
+                  Gamer?
+                  <Col>
+                    <button
+                      type="submit"
+                      name="gamer"
+                      value="yes gamer"
+                      onClick={this.onChange}
+                    >
+                      Yes
+                    </button>
+                    {"  "}
+                    <button
+                      type="submit"
+                      name="gamer"
+                      value="no gamer"
+                      onClick={this.onChange}
+                    >
+                      No
+                    </button>
+                  </Col>
+                </div>
+              </Col>
+            </Row>
+            <br />
+          </div>
 
           <button disabled={isInvalid} type="submit">
             Sign Up
