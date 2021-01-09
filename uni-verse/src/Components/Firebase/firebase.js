@@ -1,12 +1,10 @@
-<<<<<<< HEAD
 import app from "firebase/app";
 import "firebase/auth";
 import firebase from "firebase"
-=======
 import app from 'firebase/app'
 import 'firebase/auth';
 import 'firebase/storage';
->>>>>>> Adds image functionality
+
 const config = {
   // apiKey: YOUR_API_KEY,
   // authDomain: YOUR_AUTH_DOMAIN,
@@ -23,14 +21,14 @@ const config = {
   measurementId: "G-ZQ9MP8XRPZ"
 };
 
-<<<<<<< HEAD
-export default class Firebase {
-=======
+
+
+
 app.initializeApp(config);
 const storage = app.storage();
 
 class Firebase {
->>>>>>> Adds image functionality
+
   constructor() {
     // app.initializeApp(config);
     this.auth = app.auth();
@@ -48,14 +46,16 @@ class Firebase {
   // doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
 }
 
-<<<<<<< HEAD
 export function writeUserInformation(ref, obj) {
   firebase
     .database()
     .ref(ref)
     .set(obj);
 }
-=======
+
+// export default Firebase;
+// export {storage, Firebase as default};
+
 // export default Firebase;
 export {storage, Firebase as default};
->>>>>>> Adds image functionality
+
