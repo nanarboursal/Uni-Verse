@@ -1,8 +1,8 @@
 import React from "react";
-import {Row, Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import './Buttons.css';
 import Navbar from './Components/Navigation/Navbar';
-
+import SignUp from './Components/Pages/SignUp';
 class Buttons extends React.Component {
     constructor(props) {
         super(props);
@@ -36,16 +36,8 @@ class Buttons extends React.Component {
     render() {
         return (
             <>
-                <Navbar />
-                <div class="row">
-                    <div class="column">
-                        <div class="card">
-                            <div class="welcome-container">
-                                <p>WELCOME</p>
-                                <p>Please choose options below!</p>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="welcome-container">
+                        <h2>Tell us more about yourself to find some new friends from your university!</h2>
                 </div>
                 {/* <MajorGroup /> 
             <LikesGroup />  */}
@@ -55,23 +47,12 @@ class Buttons extends React.Component {
                 <div class="background-container">
                     <Row>
                         <Col >
-                            <div>
-                                <form onSubmit={this.mySubmitHandler}>
-                                    Enter your name {"  "}
-                                    <input
-                                        type="text"
-                                        name="username"
-                                        onChange={this.myChangeHandler}
-                                        className="boxInput"
-                                    />  {"  "}
-                                </form>
-                            </div>
                             {/* </Col>
                         <Col> */}
                             <br />
                             <div>
                                 <form onSubmit={this.mySubmitHandler}>
-                                    Enter your major  {"  "}
+                                    Your major  {"  "}
                                     <input
                                         type="text"
                                         name="usermajor"
@@ -86,7 +67,7 @@ class Buttons extends React.Component {
                             <br />
                             <div>
                                 <form onSubmit={this.mySubmitHandler}>
-                                    Enter your bio  {"  "}
+                                    More about yourself  {"  "}
                                     <input
                                         type="text"
                                         name="bio"
@@ -202,10 +183,10 @@ class Buttons extends React.Component {
                         </Col>
                     </Row>
                     <br />
-                    <input
+                    {/* <input
                         type='submit'
                         className="submitInput"
-                    />
+                    /> */}
                 </div>
 
             </>

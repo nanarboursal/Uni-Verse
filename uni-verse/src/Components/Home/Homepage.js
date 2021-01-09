@@ -3,6 +3,7 @@ import "../Home/Homepage.scss";
 import logo2 from "./logo2.png";
 import NavBar from "../Navigation/Navbar";
 import { Link, BrowserRouter as Router } from 'react-router-dom';
+import * as ROUTES from "../../constants/routes";
 
 export default class Homepage extends Component {
   render() {
@@ -40,7 +41,7 @@ export default class Homepage extends Component {
 
         <div className="sign-up-container">
         <React.Fragment>
-        <Link className="sign-up" to="/questions">Sign Up</Link>          
+        <Link className="sign-up" to={ROUTES.SIGNUP}>Sign Up</Link>          
        </React.Fragment>
         </div>
       </>
