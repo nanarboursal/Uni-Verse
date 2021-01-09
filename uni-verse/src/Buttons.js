@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Container, Row, Col, Form, FormGroup } from 'reactstrap';
 import './Buttons.css';
 
-
 class Buttons extends React.Component {
     constructor(props) {
         super(props);
@@ -36,12 +35,13 @@ class Buttons extends React.Component {
     render() {
         return (
             <>
+
                 <div class="row">
                     <div class="column">
                         <div class="card">
-                            <div class="welcome-container">
+                            <div class="container">
                                 <p>WELCOME</p>
-                                <p>Please choose options below to find your friend!</p>
+                                <p>Please choose options below!</p>
                             </div>
                         </div>
                     </div>
