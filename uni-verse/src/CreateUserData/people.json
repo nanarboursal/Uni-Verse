@@ -1,0 +1,95 @@
+{
+    "user_details": [
+        {
+            "name": "Harry Joe",
+            "bio": "Love to spend time at the beach and at concerts~ IG: @harryjoe",
+            "email": "harryjoes@sjsu.edu",
+            "gamer": "no gamer",
+            "gender": "male",
+            "hobby": "outdoor adventures",
+            "major": "no major",
+            "passwordOne": "12345",
+            "smoke": "yes smoker/drinker",
+            "social": "outgoing",
+            "userMajor": "Engineering"
+        },
+        {
+            "name": "Pete Davidson",
+            "bio": "hi i like music",
+            "email": "pete@sjsu.edu",
+            "gamer": "yes gamer",
+            "gender": "male",
+            "hobby": "music",
+            "major": "no major",
+            "passwordOne": "143425",
+            "smoke": "no smoker/drinker",
+            "social": "homebody",
+            "userMajor": "Art"
+        },
+        {
+            "name": "Sarah George",
+            "bio": "woowoowoowo i love food and hackathons",
+            "email": "sarageorge@sjsu.edu",
+            "gamer": "yes gamer",
+            "gender": "female",
+            "hobby": "workout",
+            "major": "no major",
+            "passwordOne": "2893jfewk",
+            "smoke": "no smoker/drinker",
+            "social": "outgoing",
+            "userMajor": "Business"
+        },
+        {
+            "name": "Jerry Bradford",
+            "bio": "i like to bike ",
+            "email": "jerry@sjsu.edu",
+            "gamer": "yes gamer",
+            "gender": "male",
+            "hobby": "",
+            "major": "outdoor adventures",
+            "passwordOne": "ksjdf93jmks",
+            "smoke": "yes smoker/drinker",
+            "social": "homebody",
+            "userMajor": "Engineering"
+        },
+        {
+            "name": "Ella No",
+            "bio": "i read a lot",
+            "email": "ella@sjsu.edu",
+            "gamer": "no gamer",
+            "gender": "female",
+            "hobby": "workout",
+            "major": "yes major",
+            "passwordOne": "2834jsedk",
+            "smoke": "no smoker/drinker",
+            "social": "outgoing",
+            "userMajor": "Engineering"
+        },
+        {
+            "name": "Andrew Pham",
+            "bio": "i like to game and play Minecraft",
+            "email": "andrew@sjsu.edu",
+            "gamer": "yes gamer",
+            "gender": "male",
+            "hobby": "music",
+            "major": "no major",
+            "passwordOne": "skdfj923",
+            "smoke": "yes smoker/drinker",
+            "social": "homebody",
+            "userMajor": "Engineering"
+        },
+        {
+            "name": "Priya",
+            "bio": "i love to watch movies and have fun with my dogs",
+            "email": "priya@sjsu.edu",
+            "gamer": "no gamer",
+            "gender": "female",
+            "hobby": "outdoor adventures",
+            "major": "yes major",
+            "passwordOne": "Engineering",
+            "smoke": "no smoker/drinker",
+            "social": "outgoing",
+            "userMajor": "Engineering"
+        }
+    ]
+}
