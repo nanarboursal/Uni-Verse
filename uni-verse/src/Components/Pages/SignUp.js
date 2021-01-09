@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { compose } from "recompose";
+import Images from '../../Components/Images';
 
 import { withFirebase } from "../../Components/Firebase";
 import * as ROUTES from "../../constants/routes";
@@ -10,104 +11,106 @@ import Questions from '../../Buttons';
 import "./SignUp.css";
 
 const SignUpPage = () => (
-  <div>
-    <SignUpForm />
-  </div>
+    <div>
+        <SignUpForm />
+    </div>
 );
 
 const INITIAL_STATE = {
-  email: "",
-  passwordOne: "",
-  passwordTwo: "",
-  error: null
+    email: "",
+    passwordOne: "",
+    passwordTwo: "",
+    error: null
 };
 
 class SignUpFormBase extends Component {
-  constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.state = { ...INITIAL_STATE };
-  }
+        this.state = { ...INITIAL_STATE };
+    }
 
-  onSubmit = event => {
-    const { email, passwordOne } = this.state;
+    onSubmit = event => {
+        const { email, passwordOne } = this.state;
 
-    this.props.firebase
-      .doCreateUserWithEmailAndPassword(email, passwordOne)
-      .then(authUser => {
-        this.setState({ ...INITIAL_STATE });
-        this.props.history.push(ROUTES.HOMEPAGE);
-      })
-      .catch(error => {
-        this.setState({ error });
-      });
+        this.props.firebase
+            .doCreateUserWithEmailAndPassword(email, passwordOne)
+            .then(authUser => {
+                this.setState({ ...INITIAL_STATE });
+                this.props.history.push(ROUTES.HOMEPAGE);
+            })
+            .catch(error => {
+                this.setState({ error });
+            });
 
-    event.preventDefault();
-  };
+        event.preventDefault();
+    };
 
-  onChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
+    onChange = event => {
+        this.setState({ [event.target.name]: event.target.value });
+    };
 
-  render() {
-    const { username, email, passwordOne, passwordTwo, error } = this.state;
+    render() {
+        const { username, email, passwordOne, passwordTwo, error } = this.state;
 
-    const isInvalid =
-      passwordOne !== passwordTwo ||
-      passwordOne === "" ||
-      email === "" ||
-      username === "";
+        const isInvalid =
+            passwordOne !== passwordTwo ||
+            passwordOne === "" ||
+            email === "" ||
+            username === "";
 
-    return (
-      <div>
-        <NavBar></NavBar>
-        <header className="sign-up-page">
-          <img className="signup-image" src={signup} alt="signup-img"></img>
-        </header>
-        <form className="signup-page" onSubmit={this.onSubmit}>
-          <input
-            name="username"
-            value={username}
-            onChange={this.onChange}
-            type="text"
-            placeholder="Full Name"
-            className="input-box"
-          />
-          <input
-            name="email"
-            value={email}
-            onChange={this.onChange}
-            type="text"
-            placeholder="Email Address"
-            className="input-box"
-          />
-          <input
-            name="passwordOne"
-            value={passwordOne}
-            onChange={this.onChange}
-            type="password"
-            placeholder="Password"
-            className="input-box"
-          />
-          <input
-            name="passwordTwo"
-            value={passwordTwo}
-            onChange={this.onChange}
-            type="password"
-            placeholder="Confirm Password"
-            className="input-box"
-          />
-        <Questions />
+        return (
+            <div>
+                <NavBar></NavBar>
+                <header className="sign-up-page">
+                    <img className="signup-image" src={signup} alt="signup-img"></img>
+                </header>
+                <form className="signup-page" onSubmit={this.onSubmit}>
+                    <input
+                        name="username"
+                        value={username}
+                        onChange={this.onChange}
+                        type="text"
+                        placeholder="Full Name"
+                        className="input-box"
+                    />
+                    <input
+                        name="email"
+                        value={email}
+                        onChange={this.onChange}
+                        type="text"
+                        placeholder="Email Address"
+                        className="input-box"
+                    />
+                    <input
+                        name="passwordOne"
+                        value={passwordOne}
+                        onChange={this.onChange}
+                        type="password"
+                        placeholder="Password"
+                        className="input-box"
+                    />
+                    <input
+                        name="passwordTwo"
+                        value={passwordTwo}
+                        onChange={this.onChange}
+                        type="password"
+                        placeholder="Confirm Password"
+                        className="input-box"
+                    />
+                    <Images />
 
-          <button disabled={isInvalid} type="submit">
-            Sign Up
+                    <Questions />
+
+                    <button disabled={isInvalid} type="submit">
+                        Sign Up
           </button>
 
-          {error && <p>{error.message}</p>}
-        </form>
-      </div>
-    );
-  }
+                    {error && <p>{error.message}</p>}
+                </form>
+            </div>
+        );
+    }
 }
 
 const SignUpForm = compose(withRouter, withFirebase)(SignUpFormBase);

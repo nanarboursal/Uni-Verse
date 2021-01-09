@@ -18,7 +18,6 @@ import {
         <Route exact path="/questions" component={Button} />
         <Route exact path={ROUTES.SIGNIN} component={Login}></Route>
         <Route exact path={ROUTES.SIGNUP} component={SignUp}></Route>
-
       </React.Fragment>
       <div className="App">
         {/* <Homepage /> */}
