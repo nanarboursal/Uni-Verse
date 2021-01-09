@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter } from "react-router-dom";
-import Firebase, { FirebaseContext } from '../src/Components/Firebase';
+import Firebase, { FirebaseContext, storage } from '../src/Components/Firebase';
 
 ReactDOM.render(
   <React.StrictMode>
