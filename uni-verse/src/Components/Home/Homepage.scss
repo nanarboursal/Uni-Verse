@@ -194,13 +194,13 @@ h1 {
   color: #fdfdfd;
   font-size: 35px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 40px;
+  padding: 2%;
   line-height: 100%;
   background: #7784bc;
   border-radius: 8px;
   text-align: center;
   height: auto;
-  margin: 2%;
+  margin: 1%;
 }
 
 .sign-up{
@@ -213,6 +213,8 @@ h1 {
 	border-radius: 10px; 	  
 	border: 2px solid #5c689e;
 	al: center;
+	font-size: 1.5rem !important;
+	margin-top: 2%;
 }
 
 .sign-up:hover{
@@ -226,4 +228,9 @@ h1 {
 
 .sign-up-container{
 	text-align: center;
+}
+
+.log-in-link {
+	font-size: 1.2rem;
+	margin-top: 1%;
 }
