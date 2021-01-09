@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Arima+Madurai:300');
 
 .welcome-container{
-    padding-top: 2%;
-    background-color: #5c689e;
-    text-align: center;
-    display: inline;
-    color: rgb(255, 255, 255);
-    font-family: Arima Madurai;
-    width: 100%;
-    align-items: center;
+  margin-top: 5%;
+  padding-top: 2%;
+  background-color: #5c689e;    
+  text-align: center;
+  display: inline;
+  color: rgb(255, 255, 255);
+  font-family: Arima Madurai;
+  width: 100%;
+  align-items: center;
 }
 
 .background-container{
