@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "../Home/Homepage.scss";
 import logo2 from "./logo2.png";
-import NavBar from "../Navigation/Navbar";
 import { Link, BrowserRouter as Router } from 'react-router-dom';
 import * as ROUTES from "../../constants/routes";
 
@@ -10,7 +9,6 @@ export default class Homepage extends Component {
     return (
       <>
       <Router>
-        <NavBar/>
       </Router>
         <div class="container">
           <div class="bird-container bird-container--one">

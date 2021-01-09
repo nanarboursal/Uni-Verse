@@ -4,7 +4,6 @@ import { compose } from "recompose";
 
 import { withFirebase } from "../../Components/Firebase";
 import * as ROUTES from "../../constants/routes";
-import NavBar from "../../Components/Navigation/Navbar";
 import "./Login.css";
 import signinpic from "./signinpic.jpg";
 
@@ -54,7 +53,6 @@ class SignInFormBase extends Component {
 
     return (
       <div>
-        <NavBar />
         <header className="sign-in-page">
           <img className="signin-image" src={signinpic} alt="signin-img"></img>
         </header>

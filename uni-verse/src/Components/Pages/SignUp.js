@@ -4,7 +4,6 @@ import { compose } from "recompose";
 import { writeUserInformation } from "../Firebase/firebase";
 import { withFirebase } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
-import NavBar from "../../Components/Navigation/Navbar";
 import signup from "./signuppic.jpg";
 import { Row, Col } from "reactstrap";
 import "./SignUp.css";
@@ -109,7 +108,6 @@ class SignUpFormBase extends Component {
 
     return (
       <div>
-        <NavBar></NavBar>
         <header className="sign-up-page">
           <img className="signup-image" src={signup} alt="signup-img"></img>
         </header>
