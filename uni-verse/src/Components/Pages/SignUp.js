@@ -3,15 +3,18 @@ import { withRouter } from "react-router-dom";
 import { compose } from "recompose";
 import { writeUserInformation } from "../Firebase/firebase";
 import { withFirebase } from "../Firebase";
+import Images from '../../Components/Images';
+
+import { withFirebase } from "../../Components/Firebase";
 import * as ROUTES from "../../constants/routes";
 import signup from "./signuppic.jpg";
 import { Container, Row, Col } from "reactstrap";
 import "./SignUp.css";
 
 const SignUpPage = () => (
-  <div>
-    <SignUpForm />
-  </div>
+    <div>
+        <SignUpForm />
+    </div>
 );
 
 class SignUpFormBase extends Component {
@@ -146,6 +149,7 @@ class SignUpFormBase extends Component {
             placeholder="Confirm Password"
             className="input-box"
           />
+          <Images />
           <div className="welcome-container">
             <h2>
               Tell us more about yourself to find some new friends from your
@@ -392,11 +396,11 @@ class SignUpFormBase extends Component {
             Sign Up
           </button>
 
-          {error && <p>{error.message}</p>}
-        </form>
-      </div>
-    );
-  }
+                    {error && <p>{error.message}</p>}
+                </form>
+            </div>
+        );
+    }
 }
 
 const SignUpForm = compose(withRouter, withFirebase)(SignUpFormBase);
