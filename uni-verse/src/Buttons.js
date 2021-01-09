@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { Container, Row, Col, Form, FormGroup } from 'reactstrap';
+import React from "react";
+import {Row, Col } from 'reactstrap';
 import './Buttons.css';
 import Navbar from './Components/Navigation/Navbar';
 
