@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-import "../Home/Homepage.scss";
+import "../Components/Homepage.scss";
 import logo2 from "./logo2.png";
-import NavBar from "../Navigation/Navbar";
-import { Link, BrowserRouter as Router } from 'react-router-dom';
+import NavBar from "./Navbar";
+import { Link, Redirect } from 'react-router-dom';
+
+
 
 export default class Homepage extends Component {
   render() {
     return (
       <>
-      <Router>
-        <NavBar/>
-      </Router>
+        <NavBar></NavBar>
         <div class="container">
           <div class="bird-container bird-container--one">
             <div class="bird bird--one"></div>
@@ -40,7 +40,7 @@ export default class Homepage extends Component {
 
         <div className="sign-up-container">
         <React.Fragment>
-        <Link className="sign-up" to="/questions">Sign Up</Link>          
+          <Link className="sign-up" to="/questions">Sign Up</Link>          
        </React.Fragment>
         </div>
       </>
