@@ -1,13 +1,16 @@
 import React, { Component } from "react";
-import "../Components/Homepage.scss";
+import "../Home/Homepage.scss";
 import logo2 from "./logo2.png";
-import NavBar from "./Navbar";
+import NavBar from "../Navigation/Navbar";
+import { BrowserRouter as Router } from 'react-router-dom';
 
 export default class Homepage extends Component {
   render() {
     return (
       <>
-        <NavBar></NavBar>
+      <Router>
+        <NavBar/>
+      </Router>
         <div class="container">
           <div class="bird-container bird-container--one">
             <div class="bird bird--one"></div>
