@@ -1,6 +1,8 @@
-import app from "firebase/app";
-import "firebase/auth";
-import firebase from "firebase";
+import app from 'firebase/app'
+import 'firebase/auth';
+import firebase from "firebase"
+import 'firebase/storage';
+
 const config = {
   // apiKey: YOUR_API_KEY,
   // authDomain: YOUR_AUTH_DOMAIN,
@@ -10,11 +12,14 @@ const config = {
   // messagingSenderId: YOUR_MESSAGING_SENDER_ID,
 };
 
-export default class Firebase {
-  constructor() {
-    app.initializeApp(config);
+app.initializeApp(config);
+const storage = app.storage();
 
+class Firebase {
+  constructor() {
+    // app.initializeApp(config);
     this.auth = app.auth();
+    // storage = app.storage();
   }
   doCreateUserWithEmailAndPassword = (email, password) =>
     this.auth.createUserWithEmailAndPassword(email, password);
@@ -38,3 +43,5 @@ export function writeUserInformation(ref, obj) {
     .ref(ref)
     .set(obj);
 }
+// export default Firebase;
+export {storage, Firebase as default};
