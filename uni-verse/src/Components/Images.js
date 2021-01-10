@@ -3,7 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { storage } from './Firebase/firebase';
 
-const FileUpload = () => {
+export const FileUpload = () => {
     const [image, setImage] = useState(null);
     const [url, setUrl] = useState("");
     const [progress, setProgress] = useState(0);

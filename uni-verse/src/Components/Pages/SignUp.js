@@ -3,9 +3,10 @@ import { withRouter } from "react-router-dom";
 import { compose } from "recompose";
 import { writeUserInformation } from "../Firebase/firebase";
 import { withFirebase } from "../Firebase";
-import Images from '../../Components/Images';
+import Images, { FileUpload } from '../../Components/Images';
+import { useState } from 'react';
+import { storage } from '../Firebase/firebase';
 
-import { withFirebase } from "../../Components/Firebase";
 import * as ROUTES from "../../constants/routes";
 import signup from "./signuppic.jpg";
 import { Container, Row, Col } from "reactstrap";
@@ -17,99 +18,177 @@ const SignUpPage = () => (
     </div>
 );
 
+
+
+
 class SignUpFormBase extends Component {
-  constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.state = {
-      email: "",
-      passwordOne: "",
-      passwordTwo: "",
-      error: null,
-      username: "",
-      usermajor: "",
-      gender: "",
-      social: "",
-      major: "",
-      hobby: "",
-      bio: "",
-      smoke: "",
-      gamer: "",
-      genderClicked: false
+        this.state = {
+            email: "",
+            passwordOne: "",
+            passwordTwo: "",
+            error: null,
+            username: "",
+            usermajor: "",
+            gender: "",
+            social: "",
+            major: "",
+            hobby: "",
+            bio: "",
+            smoke: "",
+            gamer: "",
+            url: "",
+            image: "",
+            progress: "",
+        };
+    }
+
+    onSubmit = event => {
+        event.preventDefault();
+        const {
+            email,
+            passwordOne,
+            username,
+            usermajor,
+            gender,
+            social,
+            major,
+            hobby,
+            bio,
+            smoke,
+            gamer,
+            url,
+        } = this.state;
+        let ref = "users/" + username;
+        let obj = {
+            email,
+            passwordOne,
+            usermajor,
+            gender,
+            social,
+            major,
+            hobby,
+            bio,
+            smoke,
+            gamer,
+            url,
+        };
+
+        writeUserInformation(ref, obj);
+
+        this.props.firebase
+            .doCreateUserWithEmailAndPassword(email, passwordOne)
+            .then(authUser => {
+                this.setState({
+                    email: "",
+                    passwordOne: "",
+                    passwordTwo: "",
+                    error: null,
+                    username: "",
+                    usermajor: "",
+                    gender: "",
+                    social: "",
+                    major: "",
+                    hobby: "",
+                    bio: "",
+                    smoke: "",
+                    gamer: "",
+                    url: "",
+                });
+                this.props.history.push(ROUTES.MATCHES);
+            })
+            .catch(error => {
+                this.setState({ error });
+            });
+            
     };
-  }
 
-  onSubmit = event => {
-    event.preventDefault();
-    const {
-      email,
-      passwordOne,
-      username,
-      usermajor,
-      gender,
-      social,
-      major,
-      hobby,
-      bio,
-      smoke,
-      gamer
-    } = this.state;
-    let ref = "users/" + username;
-    let obj = {
-      email,
-      passwordOne,
-      usermajor,
-      gender,
-      social,
-      major,
-      hobby,
-      bio,
-      smoke,
-      gamer
+    onChange = event => {
+        event.preventDefault();
+        this.setState({ [event.target.name]: event.target.value });
     };
 
-    writeUserInformation(ref, obj);
+    handleChange = e => {
+        if (e.target.files[0]) {
+            (this.setState({
+                image: e.target.files[0]
+            })
+            );
+        }
+        const uploadTask = storage.ref(`images/${this.state.image.name}`).put(this.state.image);
+        uploadTask.on(
+            "state_changed",
+            snapshot => {
+                const progress = Math.round(
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                );
+                (this.setState({
+                    progress: progress
+                })
+                );
+            },
+            error => {
+                // console.log(error);
+            },
+            () => {
+                storage
+                    .ref("images")
+                    .child(this.state.image.name)
+                    .getDownloadURL()
+                    .then(url => {
+                        // console.log(url);
+                        (this.setState({
+                            url: url
+                        })
+                        );
+                    });
+            }
+        );
+    };
 
-    this.props.firebase
-      .doCreateUserWithEmailAndPassword(email, passwordOne)
-      .then(authUser => {
-        this.setState({
-          email: "",
-          passwordOne: "",
-          passwordTwo: "",
-          error: null,
-          username: "",
-          usermajor: "",
-          gender: "",
-          social: "",
-          major: "",
-          hobby: "",
-          bio: "",
-          smoke: "",
-          gamer: "",
-          genderClicked: false
-        });
-        this.props.history.push(ROUTES.MATCHES);
-      })
-      .catch(error => {
-        this.setState({ error });
-      });
-  };
+    handleUpload = () => {
+        const uploadTask = storage.ref(`images/${this.state.image.name}`).put(this.state.image);
+        uploadTask.on(
+            "state_changed",
+            snapshot => {
+                const progress = Math.round(
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                );
+                (this.setState({
+                    progress: progress
+                })
+                );
+            },
+            error => {
+                // console.log(error);
+            },
+            () => {
+                storage
+                    .ref("images")
+                    .child(this.state.image.name)
+                    .getDownloadURL()
+                    .then(url => {
+                        // console.log(url);
+                        (this.setState({
+                            url: url
+                        })
+                        );
+                    });
+            }
+        );
 
-  onChange = event => {
-    event.preventDefault();
-    this.setState({ [event.target.name]: event.target.value });
-  };
+    };
+    render() {
+        const { username, email, passwordOne, passwordTwo, error } = this.state;
 
-  render() {
-    const { username, email, passwordOne, passwordTwo, error } = this.state;
-
-    const isInvalid =
-      passwordOne !== passwordTwo ||
-      passwordOne === "" ||
-      email === "" ||
-      username === "" ||
-      passwordOne.length < 6;
+        const isInvalid =
+            passwordOne !== passwordTwo ||
+            passwordOne === "" ||
+            email === "" ||
+            username === "" ||
+            passwordOne.length < 6;
 
     return (
       <div>
@@ -155,188 +234,188 @@ class SignUpFormBase extends Component {
               Tell us more about yourself to find some new friends from your
               university!
             </h2>
-          </div>
+                    </div>
 
-          <div className="background-container">
-            <Row>
-              <Col>
-                <br />
-                <div>
-                  Your major {"  "}
-                  <input
-                    type="text"
-                    name="usermajor"
-                    onChange={this.onChange}
-                    className="boxInput"
-                  />{" "}
-                  {"  "}
-                </div>
-                <br />
-                <div>
-                  More about yourself {"  "}
-                  <input
-                    type="text"
-                    name="bio"
-                    onChange={this.onChange}
-                    className="boxInput"
-                  />{" "}
-                  {"  "}
-                </div>
-                <br />
-                <Col>
-                  <div>
-                    <Col className="title-styles">Your Gender {"  "}</Col>
-                    <Col>
-                      <button
-                        type="submit"
-                        name="gender"
-                        value="male"
-                        onClick={this.onChange}
-                      >
-                        Male
+                    <div className="background-container">
+                        <Row>
+                            <Col>
+                                <br />
+                                <div>
+                                    Your major {"  "}
+                                    <input
+                                        type="text"
+                                        name="usermajor"
+                                        onChange={this.onChange}
+                                        className="boxInput"
+                                    />{" "}
+                                    {"  "}
+                                </div>
+                                <br />
+                                <div>
+                                    More about yourself {"  "}
+                                    <input
+                                        type="text"
+                                        name="bio"
+                                        onChange={this.onChange}
+                                        className="boxInput"
+                                    />{" "}
+                                    {"  "}
+                                </div>
+                                <br />
+                                <Col>
+                                    <div>
+                                        <Col className="title-styles">Your Gender {"  "}</Col>
+                                        <Col>
+                                            <button
+                                                type="submit"
+                                                name="gender"
+                                                value="male"
+                                                onClick={this.onChange}
+                                            >
+                                                Male
                       </button>
-                      {"  "}
-                      <button
-                        type="submit"
-                        name="gender"
-                        value="female"
-                        onClick={this.onChange}
-                      >
-                        Female
+                                            {"  "}
+                                            <button
+                                                type="submit"
+                                                name="gender"
+                                                value="female"
+                                                onClick={this.onChange}
+                                            >
+                                                Female
                       </button>
-                    </Col>
-                  </div>
-                </Col>
-                <div className="block-space"></div>
-                <div className="subcontainer-styles">
-                  Social Personality
+                                        </Col>
+                                    </div>
+                                </Col>
+                                <div className="block-space"></div>
+                                <div className="subcontainer-styles">
+                                    Social Personality
                   <Col>
-                    <button
-                      type="submit"
-                      name="social"
-                      value="outgoing"
-                      onClick={this.onChange}
-                    >
-                      Outgoing
+                                        <button
+                                            type="submit"
+                                            name="social"
+                                            value="outgoing"
+                                            onClick={this.onChange}
+                                        >
+                                            Outgoing
                     </button>
-                    {"  "}
-                    <button
-                      type="submit"
-                      name="social"
-                      value="homebody"
-                      onClick={this.onChange}
-                    >
-                      Homebody
+                                        {"  "}
+                                        <button
+                                            type="submit"
+                                            name="social"
+                                            value="homebody"
+                                            onClick={this.onChange}
+                                        >
+                                            Homebody
                     </button>
-                  </Col>
-                </div>
-                <div className="block-space"></div>
-                <div className="subcontainer-styles">
-                  Social smoker and/or drinker?
+                                    </Col>
+                                </div>
+                                <div className="block-space"></div>
+                                <div className="subcontainer-styles">
+                                    Social smoker and/or drinker?
                   <Col>
-                    <button
-                      type="submit"
-                      name="smoke"
-                      value="yes smoker/drinker"
-                      onClick={this.onChange}
-                    >
-                      Yeaa!
+                                        <button
+                                            type="submit"
+                                            name="smoke"
+                                            value="yes smoker/drinker"
+                                            onClick={this.onChange}
+                                        >
+                                            Yeaa!
                     </button>
-                    {"  "}
-                    <button
-                      type="submit"
-                      name="smoke"
-                      value="no smoker/drinker"
-                      onClick={this.onChange}
-                    >
-                      Nope!
+                                        {"  "}
+                                        <button
+                                            type="submit"
+                                            name="smoke"
+                                            value="no smoker/drinker"
+                                            onClick={this.onChange}
+                                        >
+                                            Nope!
                     </button>
-                  </Col>
-                </div>
-                <div className="block-space"></div>
-                <div className="subcontainer-styles">
-                  Match your major?
+                                    </Col>
+                                </div>
+                                <div className="block-space"></div>
+                                <div className="subcontainer-styles">
+                                    Match your major?
                   <Col>
-                    <button
-                      type="submit"
-                      name="major"
-                      value="yes major"
-                      onClick={this.onChange}
-                    >
-                      Yes
+                                        <button
+                                            type="submit"
+                                            name="major"
+                                            value="yes major"
+                                            onClick={this.onChange}
+                                        >
+                                            Yes
                     </button>
-                    {"  "}
-                    <button
-                      type="submit"
-                      name="major"
-                      value="no major"
-                      onClick={this.onChange}
-                    >
-                      No
+                                        {"  "}
+                                        <button
+                                            type="submit"
+                                            name="major"
+                                            value="no major"
+                                            onClick={this.onChange}
+                                        >
+                                            No
                     </button>
-                  </Col>
-                </div>
-                <div className="block-space"></div>
-                <div className="subcontainer-styles">
-                  Hobbies
+                                    </Col>
+                                </div>
+                                <div className="block-space"></div>
+                                <div className="subcontainer-styles">
+                                    Hobbies
                   <Col>
-                    <button
-                      type="submit"
-                      name="hobby"
-                      value="arts"
-                      onClick={this.onChange}
-                    >
-                      Arts
+                                        <button
+                                            type="submit"
+                                            name="hobby"
+                                            value="arts"
+                                            onClick={this.onChange}
+                                        >
+                                            Arts
                     </button>
-                    {"  "}
-                    <button
-                      type="submit"
-                      name="hobby"
-                      value="workout"
-                      onClick={this.onChange}
-                    >
-                      Workout
+                                        {"  "}
+                                        <button
+                                            type="submit"
+                                            name="hobby"
+                                            value="workout"
+                                            onClick={this.onChange}
+                                        >
+                                            Workout
                     </button>
-                    {"  "}
-                    <button
-                      type="submit"
-                      name="hobby"
-                      value="outdoor adventures"
-                      onClick={this.onChange}
-                    >
-                      Outdoor Adventures
+                                        {"  "}
+                                        <button
+                                            type="submit"
+                                            name="hobby"
+                                            value="outdoor adventures"
+                                            onClick={this.onChange}
+                                        >
+                                            Outdoor Adventures
                     </button>
-                    {"  "}
-                    <button
-                      type="submit"
-                      name="hobby"
-                      value="music"
-                      onClick={this.onChange}
-                    >
-                      Music
+                                        {"  "}
+                                        <button
+                                            type="submit"
+                                            name="hobby"
+                                            value="music"
+                                            onClick={this.onChange}
+                                        >
+                                            Music
                     </button>
-                  </Col>
-                </div>
-                <div className="block-space"></div>
-                <div className="subcontainer-styles">
-                  Gamer?
+                                    </Col>
+                                </div>
+                                <div className="block-space"></div>
+                                <div className="subcontainer-styles">
+                                    Gamer?
                   <Col>
-                    <button
-                      type="submit"
-                      name="gamer"
-                      value="yes gamer"
-                      onClick={this.onChange}
-                    >
-                      Yes
+                                        <button
+                                            type="submit"
+                                            name="gamer"
+                                            value="yes gamer"
+                                            onClick={this.onChange}
+                                        >
+                                            Yes
                     </button>
-                    {"  "}
-                    <button
-                      type="submit"
-                      name="gamer"
-                      value="no gamer"
-                      onClick={this.onChange}
-                    >
-                      No
+                                        {"  "}
+                                        <button
+                                            type="submit"
+                                            name="gamer"
+                                            value="no gamer"
+                                            onClick={this.onChange}
+                                        >
+                                            No
                     </button>
                   </Col>
                 </div>
