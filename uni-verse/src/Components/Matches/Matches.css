@@ -1,0 +1,54 @@
+.matches-page {
+  background-color: #7784bc;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  text-align: center;
+}
+
+.matches-image {
+  width: 850px;
+  height: 350px;
+  margin-top: 30px;
+}
+
+.match-es-page {
+  background-color: #7784bc;
+  min-height: 10vh;
+  width: 100%;
+}
+
+.person-image {
+  width: 300px;
+}
+
+.person-name {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.person-bio {
+    font-weight: normal;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: white;
+}
+
+.person-email {
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1.75rem;
+    color: white;
+}
+
+.slide-con {
+  padding: 0px;
+  text-align: center;
+  background-color: #7784bc;
+  width: 100%;
+  min-height: 70vh;
+  color: white;
+}
