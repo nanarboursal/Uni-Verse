@@ -6,20 +6,48 @@ import * as ROUTES from "../../constants/routes";
 
 import matchesPic from "./matches.jpg";
 
+import "react-slideshow-image/dist/styles.css";
+import { Slide } from "react-slideshow-image";
+
+import surabhi from "./surabhi.png";
+
+var people = require("../../CreateUserData/people.json");
+
 export class Matches extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
 
   render() {
+    let allMatches = people.user_details.map(person => {
+      return (
+        <div className="each-slide">
+          {/* <img className="person-image" alt="pic" src={person.url}></img> */}
+          <img className="person-image" alt="pic" src={surabhi}></img>
+          <br></br>
+          <span className="person-name">{person.name}</span>
+          <br></br>
+          <span className="person-major">{person.userMajor}</span>
+          <br></br>
+          <span className="person-email">{person.email}</span>
+          <br></br>
+          <span className="person-bio">{person.bio}</span>
+        </div>
+      );
+    });
+
     return (
       <div>
         <header className="matches-page">
-          <img className="matches-image" src={matchesPic} alt="matches-img"></img>
+          <img
+            className="matches-image"
+            src={matchesPic}
+            alt="matches-img"
+          ></img>
         </header>
-        <div className="match-es-page">
-
+        <div className="match-es-page"></div>
+        <div className="slide-container slide-con">
+          <Slide>{allMatches}</Slide>
         </div>
       </div>
     );
