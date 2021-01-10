@@ -1,6 +1,6 @@
 import app from "firebase/app";
 import "firebase/auth";
-import firebase from "firebase"
+import firebase from "firebase";
 const config = {
   // apiKey: YOUR_API_KEY,
   // authDomain: YOUR_AUTH_DOMAIN,
@@ -28,8 +28,7 @@ export default class Firebase {
   // doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
 }
 
-export function doSignOut()
-{
+export function doSignOut() {
   app.auth().signOut();
 }
 

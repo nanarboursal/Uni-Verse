@@ -5,7 +5,7 @@ import { writeUserInformation } from "../Firebase/firebase";
 import { withFirebase } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
 import signup from "./signuppic.jpg";
-import { Row, Col } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import "./SignUp.css";
 
 const SignUpPage = () => (
@@ -31,7 +31,8 @@ class SignUpFormBase extends Component {
       hobby: "",
       bio: "",
       smoke: "",
-      gamer: ""
+      gamer: "",
+      genderClicked: false
     };
   }
 
@@ -82,7 +83,8 @@ class SignUpFormBase extends Component {
           hobby: "",
           bio: "",
           smoke: "",
-          gamer: ""
+          gamer: "",
+          genderClicked: false
         });
         this.props.history.push(ROUTES.MATCHES);
       })
@@ -337,9 +339,56 @@ class SignUpFormBase extends Component {
               </Col>
             </Row>
             <br />
+            <Container className="complete-contain">
+              <Row>
+                <Col>
+                  <Row>
+                    <Col className="top-lab">
+                      Here's what you selected.{" "}
+                    </Col>
+                  </Row>
+                  <Row className="labelz">
+                    <Col >Name:</Col>
+                    <Col>{this.state.username}</Col>
+                  </Row>
+                  <Row className="labelz">
+                    <Col>Major:</Col>
+                    <Col>{this.state.usermajor}</Col>
+                  </Row>
+                  <Row className="labelz">
+                    <Col>Bio:</Col>
+                    <Col>{this.state.bio}</Col>
+                  </Row>
+                  <Row className="labelz">
+                    <Col>Gender:</Col>
+                    <Col>{this.state.gender}</Col>
+                  </Row>
+                  <Row className="labelz">
+                    <Col>Personality:</Col>
+                    <Col>{this.state.social}</Col>
+                  </Row>
+                  <Row className="labelz">
+                    <Col>Substances:</Col>
+                    <Col>{this.state.smoke}</Col>
+                  </Row>
+                  <Row className="labelz">
+                    <Col>Match major:</Col>
+                    <Col>{this.state.major}</Col>
+                  </Row>
+                  <Row className="labelz">
+                    <Col>Hobbies:</Col>
+                    <Col>{this.state.hobby}</Col>
+                  </Row>
+                  <Row className="labelz">
+                    <Col>Gamer:</Col>
+                    <Col>{this.state.gamer}</Col>
+                  </Row>
+                </Col>
+              </Row>
+            </Container>
           </div>
 
-          <button disabled={isInvalid} type="submit">
+          <button className="sub-but" disabled={isInvalid} type="submit">
             Sign Up
           </button>
 
