@@ -1,45 +1,104 @@
 {
     "matchList": [
-        [
+        
             {
-                "name": "Ella No",
-                "bio": "i read a lot",
-                "email": "ella@sjsu.edu",
-                "gamer": "no gamer",
-                "gender": "female",
-                "hobby": "workout",
-                "major": "yes major",
-                "passwordOne": "2834jsedk",
-                "smoke": "no smoker/drinker",
-                "social": "outgoing",
-                "userMajor": "Engineering"
-            },
-            {
-                "name": "Andrew Pham",
-                "bio": "i like to game and play Minecraft",
-                "email": "andrew@sjsu.edu",
+                "name": "Chad Bradford",
+                "bio": "I like to swim and sometimes I carry a big hammer.",
+                "email": "chad@sjsu.edu",
                 "gamer": "yes gamer",
                 "gender": "male",
-                "hobby": "music",
-                "major": "no major",
-                "passwordOne": "skdfj923",
+                "hobby": "workout",
+                "major": "yes major",
+                "passwordOne": "123456",
                 "smoke": "yes smoker/drinker",
-                "social": "homebody",
-                "userMajor": "Engineering"
+                "social": "outgoing",
+                "userMajor": "Engineering",
+                "url":"https://firebasestorage.googleapis.com/v0/b/uni-verse-scedemo.appspot.com/o/images%2FChris_Hemsworth_by_Gage_Skidmore_2_(cropped).jpg?alt=media&token=42ceaad5-b4b1-4bb1-b253-9e8b6f1d723e"
             },
             {
-                "name": "Priya",
-                "bio": "i love to watch movies and have fun with my dogs",
-                "email": "priya@sjsu.edu",
+                "name": "Surabhi Gupta",
+                "bio": "I love kid cudi and 21 savage. I like going on outdoor adventures.",
+                "email": "surabhi@sjsu.edu",
                 "gamer": "no gamer",
                 "gender": "female",
                 "hobby": "outdoor adventures",
                 "major": "yes major",
-                "passwordOne": "Engineering",
-                "smoke": "no smoker/drinker",
+                "passwordOne": "123456",
+                "smoke": "yes smoker/drinker",
                 "social": "outgoing",
-                "userMajor": "Engineering"
+                "userMajor": "Engineering",
+                "url":"https://firebasestorage.googleapis.com/v0/b/uni-verse-scedemo.appspot.com/o/images%2F(null)%20(1).jpg?alt=media&token=5d09db48-b591-4594-a3f9-60f68c96d4c0"
+            },
+            {
+                "name": "Nanar Boursalian",
+                "bio": "I like to read (Harry Potter, Percy Jackson) and I have binged all Marvel movies",
+                "email": "nanar@sjsu.edu",
+                "gamer": "no gamer",
+                "gender": "female",
+                "hobby": "outdoor adventures",
+                "major": "yes major",
+                "passwordOne": "123456",
+                "smoke": "yes smoker/drinker",
+                "social": "outgoing",
+                "userMajor": "Engineering",
+                "url":"https://firebasestorage.googleapis.com/v0/b/uni-verse-scedemo.appspot.com/o/images%2Fnanar.bba84be9.jpeg?alt=media&token=210aabeb-40f0-411c-bda2-99901f7fd9e7"
+            },
+            {
+                "name": "Seema Vora",
+                "bio": "I love listening to Harry Styles and Blackbear. My favorite color is blue!",
+                "email": "seema@sjsu.edu",
+                "gamer": "no gamer",
+                "gender": "female",
+                "hobby": "outdoor adventures",
+                "major": "yes major",
+                "passwordOne": "123456",
+                "smoke": "yes smoker/drinker",
+                "social": "outgoing",
+                "userMajor": "Engineering",
+                "url": "https://firebasestorage.googleapis.com/v0/b/uni-verse-scedemo.appspot.com/o/images%2Fimage0.jpg?alt=media&token=09ba5487-3081-4a53-a2fa-ffc31bc4b60d"
+            },
+            {
+                "name": "William Hilton",
+                "bio": "My close friends call me Will ;) ig: @willhilton",
+                "email": "william@sjsu.edu",
+                "gamer": "no gamer",
+                "gender": "male",
+                "hobby": "workout",
+                "major": "yes major",
+                "passwordOne": "123456",
+                "smoke": "yes smoker/drinker",
+                "social": "outgoing",
+                "userMajor": "Engineering",
+                "url":"https://firebasestorage.googleapis.com/v0/b/uni-verse-scedemo.appspot.com/o/images%2Foriginal.jpg?alt=media&token=ba9ffe76-cbcb-4d61-a78c-8d85f36e2732"
+            },
+            {
+                "name": "Stefano Royce",
+                "bio": "My ideal weekend is partying at the beach.",
+                "email": "stefano@sjsu.edu",
+                "gamer": "no gamer",
+                "gender": "male",
+                "hobby": "music",
+                "major": "yes major",
+                "passwordOne": "123456",
+                "smoke": "yes smoker/drinker",
+                "social": "outgoing",
+                "userMajor": "Engineering",
+                "url": "https://firebasestorage.googleapis.com/v0/b/uni-verse-scedemo.appspot.com/o/images%2Fhbz-hot-guys-on-instagram-06.jpg?alt=media&token=eb28bda7-9628-4f39-9bef-46d8aa11ccdd"
+            },
+            {
+                "name": "Chase Smith",
+                "bio": "I like cheese, follow me on ig: @chase",
+                "email": "chase@sjsu.edu",
+                "gamer": "no gamer",
+                "gender": "male",
+                "hobby": "music",
+                "major": "yes major",
+                "passwordOne": "123456",
+                "smoke": "yes smoker/drinker",
+                "social": "outgoing",
+                "userMajor": "Engineering",
+                "url":"https://firebasestorage.googleapis.com/v0/b/uni-verse-scedemo.appspot.com/o/images%2Fhairy.jpg?alt=media&token=4cdda20e-e067-42f7-9287-46f74abe221c"
             }
         ]
-    ]
+
 }

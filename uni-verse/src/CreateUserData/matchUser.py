@@ -1,14 +1,14 @@
 import json
-sampleUser ={ "name": "Surabhi Gupta",
-            "bio": "i like kid cudi",
-            "email": "surabhi@sjsu.edu",
-            "gamer": "yes gamer",
+sampleUser ={ "name": "Sarah Singh",
+            "bio": "I listen to 90s music.",
+            "email": "sarah@sjsu.edu",
+            "gamer": "no gamer",
             "gender": "female",
-            "hobby": "workout",
+            "hobby": "outdoor adventures",
             "major": "yes major",
-            "passwordOne": "2893jfewk",
-            "smoke": "no smoker/drinker",
-            "social": "homebody",
+            "passwordOne": "123456",
+            "smoke": "yes smoker/drinker",
+            "social": "outgoing",
             "userMajor": "Engineering"
         }
 
