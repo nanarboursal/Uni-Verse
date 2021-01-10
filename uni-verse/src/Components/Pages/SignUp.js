@@ -3,8 +3,6 @@ import { withRouter } from "react-router-dom";
 import { compose } from "recompose";
 import { writeUserInformation } from "../Firebase/firebase";
 import { withFirebase } from "../Firebase";
-import Images, { FileUpload } from '../../Components/Images';
-import { useState } from 'react';
 import { storage } from '../Firebase/firebase';
 
 import * as ROUTES from "../../constants/routes";
