@@ -1,0 +1,45 @@
+{
+    "matchList": [
+        [
+            {
+                "name": "Ella No",
+                "bio": "i read a lot",
+                "email": "ella@sjsu.edu",
+                "gamer": "no gamer",
+                "gender": "female",
+                "hobby": "workout",
+                "major": "yes major",
+                "passwordOne": "2834jsedk",
+                "smoke": "no smoker/drinker",
+                "social": "outgoing",
+                "userMajor": "Engineering"
+            },
+            {
+                "name": "Andrew Pham",
+                "bio": "i like to game and play Minecraft",
+                "email": "andrew@sjsu.edu",
+                "gamer": "yes gamer",
+                "gender": "male",
+                "hobby": "music",
+                "major": "no major",
+                "passwordOne": "skdfj923",
+                "smoke": "yes smoker/drinker",
+                "social": "homebody",
+                "userMajor": "Engineering"
+            },
+            {
+                "name": "Priya",
+                "bio": "i love to watch movies and have fun with my dogs",
+                "email": "priya@sjsu.edu",
+                "gamer": "no gamer",
+                "gender": "female",
+                "hobby": "outdoor adventures",
+                "major": "yes major",
+                "passwordOne": "Engineering",
+                "smoke": "no smoker/drinker",
+                "social": "outgoing",
+                "userMajor": "Engineering"
+            }
+        ]
+    ]
+}
