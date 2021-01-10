@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useState } from 'react';
-import axios from 'axios';
 import { storage } from './Firebase/firebase';
 
 export const FileUpload = () => {
