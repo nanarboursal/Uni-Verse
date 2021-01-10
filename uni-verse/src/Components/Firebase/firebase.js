@@ -1,8 +1,6 @@
 import app from "firebase/app";
 import "firebase/auth";
 import firebase from "firebase"
-import app from 'firebase/app'
-import 'firebase/auth';
 import 'firebase/storage';
 
 const config = {
