@@ -45,7 +45,7 @@ export const FileUpload = () => {
             <progress value = {progress} max="100" />
             <br />
             <input type="file" onChange={handleChange} />
-            <button onClick={handleUpload}>Upload</button>
+            {/* <button onClick={handleUpload}>Upload</button> */}
             <br />
             {/* {url} */}
             <br />
