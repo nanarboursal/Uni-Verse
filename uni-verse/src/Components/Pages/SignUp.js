@@ -19,8 +19,6 @@ const SignUpPage = () => (
 );
 
 
-
-
 class SignUpFormBase extends Component {
     constructor(props) {
         super(props);
@@ -228,7 +226,17 @@ class SignUpFormBase extends Component {
             placeholder="Confirm Password"
             className="input-box"
           />
-          <Images />
+          {/* <Images /> */}
+          <div>
+            <progress value = {this.state.progress} max="100" />
+            <br />
+            <input type="file" onChange={this.handleChange} />
+            {/* <button onClick={this.handleUpload}>Upload</button> */}
+            <br />
+            {/* {url} */}
+            <br />
+            <img src={this.state.url || "https://i.imgur.com/yoHdULe.png" } alt="firebase-img" />
+        </div>
           <div className="welcome-container">
             <h2>
               Tell us more about yourself to find some new friends from your
