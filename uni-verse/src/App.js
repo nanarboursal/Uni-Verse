@@ -8,6 +8,7 @@ import React, { Component } from "react";
 import * as ROUTES from "./constants/routes";
 import { Route } from "react-router-dom";
 import { withAuthentication } from "./Components/Session";
+import { Matches } from "./Components/Matches/Matches";
 
 // function App() {
 //   return (
@@ -29,15 +30,6 @@ class App extends Component {
       authUser: null
     };
   }
-
-  // componentDidMount() {
-  //   this.props.firebase.auth.onAuthStateChanged(authUser => {
-  //     authUser
-  //       ? this.setState({ authUser })
-  //       : this.setState({ authUser: null });
-  //   });
-  // }
-
   render() {
     return (
       <React.Fragment>
@@ -45,6 +37,7 @@ class App extends Component {
         <Route exact path="/" component={Homepage} />
         <Route exact path={ROUTES.SIGNIN} component={Login}></Route>
         <Route exact path={ROUTES.SIGNUP} component={SignUp}></Route>
+        <Route exact path={ROUTES.MATCHES} component={Matches}></Route>
       </React.Fragment>
     );
   }

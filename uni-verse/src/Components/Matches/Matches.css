@@ -1,0 +1,28 @@
+.matches-page {
+  background-color: #7784bc;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  text-align: center;
+}
+
+.matches-image {
+  width: 850px;
+  height: 350px;
+  margin-top: 30px;
+}
+
+.match-es-page {
+  background-color: #7784bc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  text-align: center;
+  width: 100%;
+}
