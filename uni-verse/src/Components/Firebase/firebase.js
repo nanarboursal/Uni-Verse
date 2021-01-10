@@ -8,13 +8,6 @@ const config = {
   // projectId: YOUR_PROJECT_ID,
   // storageBucket: '',
   // messagingSenderId: YOUR_MESSAGING_SENDER_ID,
-  apiKey: "AIzaSyDm5bO5HeO0Vnl5eUueqYZOSfic4o48cC4",
-  authDomain: "uni-verse-scedemo.firebaseapp.com",
-  projectId: "uni-verse-scedemo",
-  storageBucket: "uni-verse-scedemo.appspot.com",
-  messagingSenderId: "1085241479794",
-  appId: "1:1085241479794:web:530968a5c736478893e8eb",
-  measurementId: "G-ZQ9MP8XRPZ"
 };
 
 export default class Firebase {
