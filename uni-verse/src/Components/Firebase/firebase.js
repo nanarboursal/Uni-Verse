@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 import app from 'firebase/app'
 import 'firebase/auth';
-=======
-import app from "firebase/app";
-import "firebase/auth";
 import firebase from "firebase"
->>>>>>> Creates image functionality
 import 'firebase/storage';
+
 const config = {
   // apiKey: YOUR_API_KEY,
   // authDomain: YOUR_AUTH_DOMAIN,
