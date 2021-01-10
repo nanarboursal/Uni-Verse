@@ -128,7 +128,7 @@ class SignUpFormBase extends Component {
                 );
             },
             error => {
-                // console.log(error);
+                console.log(error);
             },
             () => {
                 storage
@@ -136,14 +136,16 @@ class SignUpFormBase extends Component {
                     .child(this.state.image.name)
                     .getDownloadURL()
                     .then(url => {
-                        // console.log(url);
                         (this.setState({
                             url: url
                         })
                         );
                     });
             }
+            
         );
+        console.log(this.state.url);
+
     };
 
     handleUpload = () => {
