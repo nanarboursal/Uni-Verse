@@ -113,6 +113,18 @@ button:hover,
   border: 2px solid #5c689e;
 }
 
+button:focus {
+  background: #7784bc;
+  color: #ffffff;
+  border: 2px solid #5c689e;
+}
+
+button:visited {
+  background: #7784bc !important;
+  color: #ffffff !important;
+  border: 2px solid #5c689e !important;
+}
+
 .boxInput {
   border-radius: 5px;
 }

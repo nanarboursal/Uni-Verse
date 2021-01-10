@@ -1,50 +1,53 @@
-import './App.css';
-import Homepage from './Components/Home/Homepage';
-import Button from './Buttons.js';
-import Login from './Components/Pages/Login';
-import SignUp from './Components/Pages/SignUp';
+import "./App.css";
+import Homepage from "./Components/Home/Homepage";
+// import Button from "./Buttons.js";
+import Login from "./Components/Pages/Login";
+import SignUp from "./Components/Pages/SignUp";
+import NavBar from "./Components/Navigation/Navbar";
+import React, { Component } from "react";
+import * as ROUTES from "./constants/routes";
+import { Route } from "react-router-dom";
+import { withAuthentication } from "./Components/Session";
 
-import React from 'react';
-import * as ROUTES from './constants/routes';
-import {		
-    Route,	
-  } from 'react-router-dom';	
-  
-  function App() {
-  return (
-    <>
-      <React.Fragment>
-        <Route exact path="/" component={Homepage} />
-        <Route exact path="/questions" component={Button} />
-        <Route exact path={ROUTES.SIGNIN} component={Login}></Route>
-        <Route exact path={ROUTES.SIGNUP} component={SignUp}></Route>
-
-      </React.Fragment>
-      <div className="App">
-        {/* <Homepage /> */}
-      </div>
-    </>
-  );
-}
-
-export default App;
-// import {	
-//   BrowserRouter as Router,	
-//   Route,	
-// } from 'react-router-dom';	
-
-// import './App.css';
-// import Login from './Components/Pages/Login';
-
-// import * as ROUTES from './constants/routes';
-
-// function App(){
-//   return(
-//     <Router>
-//       <div>
-//         <Route exact path={ROUTES.SIGNIN} componenet={Login}></Route>
-//       </div>
-//     </Router>
+// function App() {
+//   return (
+//     <>
+//       <React.Fragment>
+//         <Route exact path="/" component={Homepage} />
+//         <Route exact path={ROUTES.SIGNIN} component={Login}></Route>
+//         <Route exact path={ROUTES.SIGNUP} component={SignUp}></Route>
+//       </React.Fragment>
+//     </>
 //   );
 // }
-// export default App;
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      authUser: null
+    };
+  }
+
+  // componentDidMount() {
+  //   this.props.firebase.auth.onAuthStateChanged(authUser => {
+  //     authUser
+  //       ? this.setState({ authUser })
+  //       : this.setState({ authUser: null });
+  //   });
+  // }
+
+  render() {
+    return (
+      <React.Fragment>
+        <NavBar></NavBar>
+        <Route exact path="/" component={Homepage} />
+        <Route exact path={ROUTES.SIGNIN} component={Login}></Route>
+        <Route exact path={ROUTES.SIGNUP} component={SignUp}></Route>
+      </React.Fragment>
+    );
+  }
+}
+
+export default withAuthentication(App);
